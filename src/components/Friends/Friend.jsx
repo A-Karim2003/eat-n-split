@@ -1,11 +1,16 @@
 import "./friend.css";
-import Button from "../Button";
+import Button from "../../components/Button";
 
 function Friend() {
   return (
     <div className="friend">
-      <div className="profile-pic"></div>
-      <div className="profile-info"></div>
+      <div className="profile-pic">
+        <img src="https://i.pravatar.cc/150?u=anything" alt="Random" />
+      </div>
+      <div className="profile-info">
+        <h2>Clark</h2>
+        <p>You owe Clark £7</p>
+      </div>
       <Button className={"close-btn"}>Close</Button>
     </div>
   );

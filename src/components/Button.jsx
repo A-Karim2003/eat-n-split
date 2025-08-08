@@ -1,7 +1,5 @@
-import "./friend.css";
-
 function Button({ children, className }) {
-  return <button className={`button ${className}`}>{children}</button>;
+  return <button className={className}>{children}</button>;
 }
 
 export default Button;

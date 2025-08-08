@@ -3,3 +3,36 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.app {
+  max-width: 1000px;
+  width: 100%;
+}
+
+button {
+  background-color: orange;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.98);
+}
