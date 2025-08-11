@@ -4,8 +4,8 @@ import Friends from "./components/Friends/Friends.jsx";
 function App() {
   return (
     <div className="app">
-      <BillSplitter />
       <Friends />
+      <BillSplitter />
     </div>
   );
 }

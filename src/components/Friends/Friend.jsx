@@ -1,4 +1,3 @@
-import "./friend.css";
 import Button from "../../components/Button";
 
 function Friend() {

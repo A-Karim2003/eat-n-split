@@ -1,20 +1,24 @@
 /*=========== Left-section-container======== */
 
 .friends {
-  max-width: 500px;
-  min-width: 450px;
-  width: 100%;
   border-right: solid 1px orange;
   padding: 1rem;
+  flex: 1;
 }
 
 .friend {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: rem;
+  margin-bottom: 1rem;
   border-bottom: solid 1px orange;
-  padding: 5px;
+  padding: 5px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.friend:hover {
+  background-color: #fff4e5;
 }
 
 /*=============== Profile-pic============= */
