@@ -4,13 +4,16 @@
   border-right: solid 1px orange;
   padding: 1rem;
   flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .friend {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 1rem;
   border-bottom: solid 1px orange;
   padding: 5px 10px;
   border-radius: 16px;
