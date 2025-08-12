@@ -1,8 +1,18 @@
 import Button from "../../components/Button";
 
-function Friend({ id, profilePic, name, amount }) {
+function Friend({
+  id,
+  profilePic,
+  name,
+  amount,
+  handleSelectedId,
+  isSelected,
+}) {
   return (
-    <div className="friend">
+    <div
+      className={`friend ${isSelected ? "selected" : ""}`}
+      onClick={() => handleSelectedId(id)}
+    >
       <div className="profile-pic">
         <img src={profilePic} alt="Random" />
       </div>

@@ -24,15 +24,19 @@ const friendsData = [
 ];
 
 function App() {
-  const [SelectedPerson, setSelectedPerson] = useState("");
+  const [selectedPersonId, setSelectedPersonId] = useState("");
 
-  function getSelectedPerson() {
-    setSelectedPerson();
-  }
+  const selectedPerson = friendsData.find(
+    (friend) => friend.id === selectedPersonId
+  );
 
   return (
     <div className="app">
-      <Friends friendsData={friendsData} />
+      <Friends
+        friendsData={friendsData}
+        selectedPersonId={selectedPersonId}
+        setSelectedPersonId={setSelectedPersonId}
+      />
       <BillSplitter />
     </div>
   );
@@ -40,4 +44,4 @@ function App() {
 
 export default App;
 
-//! Complete the selectedPerson state logic
+//! pass selectedPerson to the Billsplitter component

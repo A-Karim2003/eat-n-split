@@ -2,16 +2,18 @@ import "./friend.css";
 import Friend from "./Friend";
 import Button from "../Button";
 
-function Friends({ friendsData }) {
+function Friends({ friendsData, selectedPersonId, setSelectedPersonId }) {
+  function handleSelectedId(id) {
+    setSelectedPersonId(id);
+  }
   return (
     <div className="friends">
       {friendsData.map((friend) => (
         <Friend
           key={friend.id}
-          id={friend.id}
-          profilePic={friend.profilePic}
-          name={friend.name}
-          amount={friend.amount}
+          {...friend}
+          handleSelectedId={handleSelectedId}
+          isSelected={selectedPersonId === friend.id}
         />
       ))}
       {/* prettier-ignore */}

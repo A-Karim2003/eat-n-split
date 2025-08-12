@@ -24,6 +24,10 @@
   background-color: #fff4e5;
 }
 
+.friend.selected {
+  background-color: #fff4e5;
+}
+
 /*=============== Profile-pic============= */
 .profile-pic {
   width: 50px;
