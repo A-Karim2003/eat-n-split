@@ -18,6 +18,14 @@
   margin-bottom: 2.5rem;
 }
 
+.input-group input,
+.input-group select {
+  border: none;
+  border: solid 1px #ffa60046;
+  padding: 4px;
+  width: 150px;
+}
+
 .split-bill-btn {
   display: block;
   margin-left: auto;

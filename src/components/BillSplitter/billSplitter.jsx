@@ -23,13 +23,16 @@ function BillSplitter() {
       {/* --------Friend's valie--------- */}
       <InputGroup>
         <div>👫 Clark's expense</div>
-        <input type="number" />
+        <input type="number" disabled />
       </InputGroup>
 
       {/* --------Bill payer--------- */}
       <InputGroup>
-        <div>🪙 Who is paying the bill</div>
-        <input type="number" />
+        <label for="bill-paper">🪙 Who is paying the bill</label>
+        <select id="bill-payer">
+          <option value="">You</option>
+          <option value="">Clark</option>
+        </select>
       </InputGroup>
 
       <Button className={"split-bill-btn"}>Split bill</Button>
