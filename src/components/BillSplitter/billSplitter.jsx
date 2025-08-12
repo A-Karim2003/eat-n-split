@@ -20,7 +20,7 @@ function BillSplitter() {
         <input type="number" />
       </InputGroup>
 
-      {/* --------Friend's valie--------- */}
+      {/* --------Friend's value--------- */}
       <InputGroup>
         <div>👫 Clark's expense</div>
         <input type="number" disabled />
@@ -28,7 +28,7 @@ function BillSplitter() {
 
       {/* --------Bill payer--------- */}
       <InputGroup>
-        <label for="bill-paper">🪙 Who is paying the bill</label>
+        <label htmlFor="bill-payer">🪙 Who is paying the bill</label>
         <select id="bill-payer">
           <option value="">You</option>
           <option value="">Clark</option>

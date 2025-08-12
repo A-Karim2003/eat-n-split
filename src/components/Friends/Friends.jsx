@@ -2,13 +2,18 @@ import "./friend.css";
 import Friend from "./Friend";
 import Button from "../Button";
 
-function Friends() {
+function Friends({ friendsData }) {
   return (
     <div className="friends">
-      <Friend />
-      <Friend />
-      <Friend />
-
+      {friendsData.map((friend) => (
+        <Friend
+          key={friend.id}
+          id={friend.id}
+          profilePic={friend.profilePic}
+          name={friend.name}
+          amount={friend.amount}
+        />
+      ))}
       {/* prettier-ignore */}
       <Button className={"add-friend-btn"}>
         Add friend
