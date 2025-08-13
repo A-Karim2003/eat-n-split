@@ -37,7 +37,7 @@ function App() {
         selectedPersonId={selectedPersonId}
         setSelectedPersonId={setSelectedPersonId}
       />
-      <BillSplitter />
+      <BillSplitter selectedPerson={selectedPerson} />
     </div>
   );
 }

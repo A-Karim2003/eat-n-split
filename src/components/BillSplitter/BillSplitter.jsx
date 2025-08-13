@@ -3,7 +3,10 @@ import Button from "../Button";
 
 import "./billSplitter.css";
 
-function BillSplitter() {
+function BillSplitter({ selectedPerson }) {
+  console.log(selectedPerson);
+
+  if (!selectedPerson) return;
   return (
     <div className="bill-splitter-container">
       <h2>Split a bill with Clark</h2>
