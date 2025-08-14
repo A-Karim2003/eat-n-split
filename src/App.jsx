@@ -31,7 +31,7 @@ function App() {
   );
 
   return (
-    <div className="app">
+    <div className={`app ${selectedPerson ? "selected" : ""}`}>
       <Friends
         friendsData={friendsData}
         selectedPersonId={selectedPersonId}

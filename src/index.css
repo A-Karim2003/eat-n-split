@@ -19,11 +19,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  max-width: 1000px;
+  width: 100%;
 }
 
 .app {
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 50%;
+}
+
+.app.selected {
+  width: 100%;
 }
 
 @media (max-width: 720px) {

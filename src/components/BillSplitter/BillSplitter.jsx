@@ -2,13 +2,23 @@ import InputGroup from "./InputGroup";
 import Button from "../Button";
 
 import "./billSplitter.css";
-import { use, useState } from "react";
+import { useState } from "react";
 
 function BillSplitter({ selectedPerson }) {
   const [bill, setBill] = useState("");
   const [myExpense, setMyExpense] = useState("");
 
+  function handleMyExpense(e) {
+    const expense = Number(e.target.value);
+    if (expense > bill) return;
+
+    setMyExpense(expense);
+
+    console.log(expense);
+  }
+
   if (!selectedPerson) return;
+
   return (
     <div className="bill-splitter-container">
       <h2>Split a bill with {selectedPerson.name}</h2>
@@ -27,7 +37,8 @@ function BillSplitter({ selectedPerson }) {
         <div>👨🏽‍💼 Your Expense</div>
         <input
           type="number"
-          onChange={(e) => setMyExpense(Number(e.target.value))}
+          onChange={(e) => handleMyExpense(e)}
+          value={myExpense}
         />
       </InputGroup>
 
