@@ -7,19 +7,19 @@ const friendsData = [
     id: 1,
     profilePic: "https://i.pravatar.cc/150?img=12",
     name: "Clark",
-    amount: "",
+    amount: 7,
   },
   {
     id: 2,
     profilePic: "https://i.pravatar.cc/150?img=47",
     name: "Sarah",
-    amount: "",
+    amount: 20,
   },
   {
     id: 3,
     profilePic: "https://i.pravatar.cc/150?img=3",
     name: "Anthony",
-    amount: "",
+    amount: 0,
   },
 ];
 
@@ -43,5 +43,3 @@ function App() {
 }
 
 export default App;
-
-//! pass selectedPerson to the Billsplitter component

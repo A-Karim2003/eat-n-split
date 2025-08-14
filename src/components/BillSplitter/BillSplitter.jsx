@@ -2,31 +2,39 @@ import InputGroup from "./InputGroup";
 import Button from "../Button";
 
 import "./billSplitter.css";
+import { use, useState } from "react";
 
 function BillSplitter({ selectedPerson }) {
-  console.log(selectedPerson);
+  const [bill, setBill] = useState("");
+  const [myExpense, setMyExpense] = useState("");
 
   if (!selectedPerson) return;
   return (
     <div className="bill-splitter-container">
-      <h2>Split a bill with Clark</h2>
+      <h2>Split a bill with {selectedPerson.name}</h2>
 
       {/* --------Bill Value--------- */}
       <InputGroup>
         <div>💵 Bill value</div>
-        <input type="number" />
+        <input
+          type="number"
+          onChange={(e) => setBill(Number(e.target.value))}
+        />
       </InputGroup>
 
-      {/* --------Your Expense--------- */}
+      {/* -----------My Expense---------- */}
       <InputGroup>
         <div>👨🏽‍💼 Your Expense</div>
-        <input type="number" />
+        <input
+          type="number"
+          onChange={(e) => setMyExpense(Number(e.target.value))}
+        />
       </InputGroup>
 
       {/* --------Friend's value--------- */}
       <InputGroup>
-        <div>👫 Clark's expense</div>
-        <input type="number" disabled />
+        <div>👫 {selectedPerson.name}'s expense</div>
+        <input type="number" disabled value={bill} />
       </InputGroup>
 
       {/* --------Bill payer--------- */}
