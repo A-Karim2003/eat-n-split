@@ -9,12 +9,15 @@ function BillSplitter({ selectedPerson }) {
   const [myExpense, setMyExpense] = useState("");
 
   function handleMyExpense(e) {
+    if (e.target.value === "") {
+      setMyExpense("");
+      return;
+    }
+
     const expense = Number(e.target.value);
     if (expense > bill) return;
 
     setMyExpense(expense);
-
-    console.log(expense);
   }
 
   if (!selectedPerson) return;
@@ -63,3 +66,5 @@ function BillSplitter({ selectedPerson }) {
 }
 
 export default BillSplitter;
+
+//! Keep bill and expense state as strings and only convert them into Number when math is required
