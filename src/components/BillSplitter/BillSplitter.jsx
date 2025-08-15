@@ -7,17 +7,20 @@ import { useState } from "react";
 function BillSplitter({ selectedPerson }) {
   const [bill, setBill] = useState("");
   const [myExpense, setMyExpense] = useState("");
+  const [billPayer, setbillPayer] = useState("");
 
   function handleMyExpense(e) {
-    if (e.target.value === "") {
-      setMyExpense("");
-      return;
-    }
-
     const expense = Number(e.target.value);
-    if (expense > bill) return;
+    const billInput = Number(bill);
 
-    setMyExpense(expense);
+    if (expense > billInput) return alert("Expense cannot exceed bill");
+
+    setMyExpense(e.target.value);
+  }
+
+  function handleFriendsExpence() {
+    if (Number(bill) === 0) return "";
+    return Number(bill) - Number(myExpense);
   }
 
   if (!selectedPerson) return;
@@ -26,37 +29,30 @@ function BillSplitter({ selectedPerson }) {
     <div className="bill-splitter-container">
       <h2>Split a bill with {selectedPerson.name}</h2>
 
-      {/* --------Bill Value--------- */}
+      {/* ----------Bill Value---------- */}
       <InputGroup>
         <div>💵 Bill value</div>
-        <input
-          type="number"
-          onChange={(e) => setBill(Number(e.target.value))}
-        />
+        <input type="number" onChange={(e) => setBill(e.target.value)} />
       </InputGroup>
 
       {/* -----------My Expense---------- */}
       <InputGroup>
         <div>👨🏽‍💼 Your Expense</div>
-        <input
-          type="number"
-          onChange={(e) => handleMyExpense(e)}
-          value={myExpense}
-        />
+        <input type="number" onChange={handleMyExpense} value={myExpense} />
       </InputGroup>
 
       {/* --------Friend's value--------- */}
       <InputGroup>
         <div>👫 {selectedPerson.name}'s expense</div>
-        <input type="number" disabled value={bill} />
+        <input type="number" disabled value={handleFriendsExpence()} />
       </InputGroup>
 
-      {/* --------Bill payer--------- */}
+      {/* ----------Bill payer----------- */}
       <InputGroup>
         <label htmlFor="bill-payer">🪙 Who is paying the bill</label>
         <select id="bill-payer">
-          <option value="">You</option>
-          <option value="">Clark</option>
+          <option value="me">You</option>
+          <option value="friend">{selectedPerson.name}</option>
         </select>
       </InputGroup>
 
@@ -66,5 +62,3 @@ function BillSplitter({ selectedPerson }) {
 }
 
 export default BillSplitter;
-
-//! Keep bill and expense state as strings and only convert them into Number when math is required
