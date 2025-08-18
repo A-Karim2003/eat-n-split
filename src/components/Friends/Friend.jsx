@@ -7,7 +7,6 @@ function Friend({
   amount,
   handleSelectedId,
   isSelected,
-  onHandleFriend,
 }) {
   return (
     <div
@@ -27,5 +26,4 @@ function Friend({
     </div>
   );
 }
-
 export default Friend;

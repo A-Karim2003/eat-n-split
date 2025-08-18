@@ -26,7 +26,19 @@ const friendsData = [
 function App() {
   const [selectedPersonId, setSelectedPersonId] = useState("");
 
-  const selectedPerson = friendsData.find(
+  const [friends, setFriends] = useState(friendsData);
+
+  function handleFriends(id, newAmount) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === id ? { ...friend, amount: newAmount } : friend
+      )
+    );
+
+    console.log(id, newAmount);
+  }
+
+  const selectedPerson = friends.find(
     (friend) => friend.id === selectedPersonId
   );
 
@@ -36,8 +48,13 @@ function App() {
         friendsData={friendsData}
         selectedPersonId={selectedPersonId}
         setSelectedPersonId={setSelectedPersonId}
+        friends={friends}
       />
-      <BillSplitter selectedPerson={selectedPerson} />
+      <BillSplitter
+        selectedPerson={selectedPerson}
+        onHandleFriends={handleFriends}
+        selectedPersonId={selectedPersonId}
+      />
     </div>
   );
 }

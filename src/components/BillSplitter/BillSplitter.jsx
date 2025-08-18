@@ -4,7 +4,7 @@ import Button from "../Button";
 import "./billSplitter.css";
 import { useState } from "react";
 
-function BillSplitter({ selectedPerson }) {
+function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
   const [bill, setBill] = useState("");
   const [myExpense, setMyExpense] = useState("");
   const [billPayer, setbillPayer] = useState("");
@@ -18,9 +18,18 @@ function BillSplitter({ selectedPerson }) {
     setMyExpense(e.target.value);
   }
 
+  function handleBillPayer(e) {
+    setbillPayer(e.target.value);
+  }
+
   function handleFriendsExpence() {
     if (Number(bill) === 0) return "";
     return Number(bill) - Number(myExpense);
+  }
+
+  function calcAmount() {
+    console.log("calcAmount was called!");
+    return "Amount test....";
   }
 
   if (!selectedPerson) return;
@@ -50,13 +59,18 @@ function BillSplitter({ selectedPerson }) {
       {/* ----------Bill payer----------- */}
       <InputGroup>
         <label htmlFor="bill-payer">🪙 Who is paying the bill</label>
-        <select id="bill-payer">
+        <select id="bill-payer" onChange={handleBillPayer}>
           <option value="me">You</option>
           <option value="friend">{selectedPerson.name}</option>
         </select>
       </InputGroup>
 
-      <Button className={"split-bill-btn"}>Split bill</Button>
+      <Button
+        onClick={() => onHandleFriends(selectedPersonId, calcAmount())}
+        className={"split-bill-btn"}
+      >
+        Split bill
+      </Button>
     </div>
   );
 }
