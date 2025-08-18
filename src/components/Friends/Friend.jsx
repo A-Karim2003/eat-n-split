@@ -7,6 +7,7 @@ function Friend({
   amount,
   handleSelectedId,
   isSelected,
+  onHandleFriend,
 }) {
   return (
     <div

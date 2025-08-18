@@ -4,9 +4,15 @@ import Button from "../Button";
 import { useState } from "react";
 
 function Friends({ friendsData, selectedPersonId, setSelectedPersonId }) {
-  const [friend, setfriend] = useState(friendsData);
+  const [friends, setFriends] = useState(friendsData);
 
-  function handleFriends() {}
+  function handleFriends(id, newAmount) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === id ? { ...friend, amount: newAmount } : friends
+      )
+    );
+  }
 
   function handleSelectedId(id) {
     setSelectedPersonId(id);
@@ -20,6 +26,7 @@ function Friends({ friendsData, selectedPersonId, setSelectedPersonId }) {
           {...friend}
           handleSelectedId={handleSelectedId}
           isSelected={selectedPersonId === friend.id}
+          onHandleFriend={handleFriends}
         />
       ))}
       {/* prettier-ignore */}
