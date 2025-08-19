@@ -78,3 +78,17 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
 }
 
 export default BillSplitter;
+
+//! Note:
+/* 
+if bill is being payed by me:
+Add friends expense to the required friend object
+
+else if bill is being payed by friend:
+multiply friends expense by -1 to make it a negative then add that to the required friend object
+
+logic explanation:
+basically, if I'm paying, then friends owe me so this means a positive number.
+
+if friend is paying, this means I owe them so its negative
+*/
