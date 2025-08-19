@@ -27,10 +27,12 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
     return Number(bill) - Number(myExpense);
   }
 
-  function calcAmount() {
-    console.log("calcAmount was called!");
-    return "Amount test....";
-  }
+  //!-------------------------------//
+  // function calcAmount() {
+  //   const friendExpence = handleFriendsExpence;
+  //   if (billPayer === "me") {
+  //   }
+  // }
 
   if (!selectedPerson) return;
 

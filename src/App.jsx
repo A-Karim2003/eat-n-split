@@ -31,7 +31,9 @@ function App() {
   function handleFriends(id, newAmount) {
     setFriends((friends) =>
       friends.map((friend) =>
-        friend.id === id ? { ...friend, amount: newAmount } : friend
+        friend.id === id
+          ? { ...friend, amount: friend.amount + newAmount }
+          : friend
       )
     );
 
