@@ -30,13 +30,10 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
   function calcAmount() {
     const friendExpence = handleFriendsExpence();
     if (billPayer === "me") return friendExpence;
-    if (billPayer === "friend") return -friendExpence;
+    if (billPayer === "friend") return -Number(myExpense);
   }
 
   if (!selectedPerson) return;
-
-  console.log(selectedPerson);
-  console.log(calcAmount());
 
   return (
     <div className="bill-splitter-container">

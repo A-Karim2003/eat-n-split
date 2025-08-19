@@ -7,7 +7,7 @@ const friendsData = [
     id: 1,
     profilePic: "https://i.pravatar.cc/150?img=12",
     name: "Clark",
-    amount: 7,
+    amount: -7,
   },
   {
     id: 2,
@@ -36,8 +36,6 @@ function App() {
           : friend
       )
     );
-
-    // console.log(id, newAmount);
   }
 
   const selectedPerson = friends.find(
@@ -47,7 +45,6 @@ function App() {
   return (
     <div className={`app ${selectedPerson ? "selected" : ""}`}>
       <Friends
-        friendsData={friendsData}
         selectedPersonId={selectedPersonId}
         setSelectedPersonId={setSelectedPersonId}
         friends={friends}
