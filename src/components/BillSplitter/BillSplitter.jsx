@@ -7,7 +7,7 @@ import { useState } from "react";
 function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
   const [bill, setBill] = useState("");
   const [myExpense, setMyExpense] = useState("");
-  const [billPayer, setbillPayer] = useState("");
+  const [billPayer, setbillPayer] = useState("me");
 
   function handleMyExpense(e) {
     const expense = Number(e.target.value);
@@ -27,14 +27,16 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
     return Number(bill) - Number(myExpense);
   }
 
-  //!-------------------------------//
-  // function calcAmount() {
-  //   const friendExpence = handleFriendsExpence;
-  //   if (billPayer === "me") {
-  //   }
-  // }
+  function calcAmount() {
+    const friendExpence = handleFriendsExpence();
+    if (billPayer === "me") return friendExpence;
+    if (billPayer === "friend") return -friendExpence;
+  }
 
   if (!selectedPerson) return;
+
+  console.log(selectedPerson);
+  console.log(calcAmount());
 
   return (
     <div className="bill-splitter-container">
@@ -61,7 +63,7 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
       {/* ----------Bill payer----------- */}
       <InputGroup>
         <label htmlFor="bill-payer">🪙 Who is paying the bill</label>
-        <select id="bill-payer" onChange={handleBillPayer}>
+        <select id="bill-payer" value={billPayer} onChange={handleBillPayer}>
           <option value="me">You</option>
           <option value="friend">{selectedPerson.name}</option>
         </select>

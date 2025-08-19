@@ -37,7 +37,7 @@ function App() {
       )
     );
 
-    console.log(id, newAmount);
+    // console.log(id, newAmount);
   }
 
   const selectedPerson = friends.find(
