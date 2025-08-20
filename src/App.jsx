@@ -38,9 +38,7 @@ function App() {
     );
   }
 
-  const selectedPerson = friends.find(
-    (friend) => friend.id === selectedPersonId
-  );
+  let selectedPerson = friends.find((friend) => friend.id === selectedPersonId);
 
   return (
     <div className={`app ${selectedPerson ? "selected" : ""}`}>

@@ -92,5 +92,3 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
 }
 
 export default BillSplitter;
-
-//! focus on what to do once bill is split, does the splitbill section go away?

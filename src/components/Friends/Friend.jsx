@@ -23,7 +23,17 @@ function Friend({
           {Math.abs(amount)}
         </p>
       </div>
-      <Button className={"close-btn"}>Close</Button>
+      <Button
+        className={"close-btn"}
+        onClick={(e) => {
+          e.stopPropagation();
+
+          if (!isSelected) return;
+          handleSelectedId(null);
+        }}
+      >
+        Close
+      </Button>
     </div>
   );
 }
