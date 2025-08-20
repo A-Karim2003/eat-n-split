@@ -18,7 +18,7 @@ function Friend({
       </div>
       <div className="profile-info">
         <h2>{name}</h2>
-        <p className={amount > 0 ? "green" : "red"}>
+        <p className={amount > 0 ? "green" : amount === 0 ? "" : "red"}>
           {amount > 0 ? `${name} owes you` : `You owe ${name}`} £
           {Math.abs(amount)}
         </p>

@@ -30,7 +30,14 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
   function calcAmount() {
     const friendExpence = handleFriendsExpence();
     if (billPayer === "me") return friendExpence;
+
     if (billPayer === "friend") return -Number(myExpense);
+  }
+
+  function clearInputs() {
+    setBill("");
+    setMyExpense("");
+    setbillPayer("me");
   }
 
   if (!selectedPerson) return;
@@ -42,7 +49,11 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
       {/* ----------Bill Value---------- */}
       <InputGroup>
         <div>💵 Bill value</div>
-        <input type="number" onChange={(e) => setBill(e.target.value)} />
+        <input
+          type="number"
+          value={bill}
+          onChange={(e) => setBill(e.target.value)}
+        />
       </InputGroup>
 
       {/* -----------My Expense---------- */}
@@ -67,7 +78,11 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
       </InputGroup>
 
       <Button
-        onClick={() => onHandleFriends(selectedPersonId, calcAmount())}
+        onClick={() => {
+          if (!myExpense) return alert("Please enter your expense");
+          onHandleFriends(selectedPersonId, calcAmount());
+          clearInputs();
+        }}
         className={"split-bill-btn"}
       >
         Split bill
@@ -78,16 +93,4 @@ function BillSplitter({ selectedPerson, onHandleFriends, selectedPersonId }) {
 
 export default BillSplitter;
 
-//! Note:
-/* 
-if bill is being payed by me:
-Add friends expense to the required friend object
-
-else if bill is being payed by friend:
-multiply friends expense by -1 to make it a negative then add that to the required friend object
-
-logic explanation:
-basically, if I'm paying, then friends owe me so this means a positive number.
-
-if friend is paying, this means I owe them so its negative
-*/
+//! focus on what to do once bill is split, does the splitbill section go away?
