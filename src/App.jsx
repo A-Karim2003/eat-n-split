@@ -38,6 +38,19 @@ function App() {
     );
   }
 
+  function addFriend() {
+    const maxId = Math.max(...friends);
+
+    const newFriend = {
+      id: 3,
+      profilePic: "https://i.pravatar.cc/150?img=3",
+      name: "Anthony",
+      amount: 0,
+    };
+
+    setFriends((friends) => friends.push());
+  }
+
   let selectedPerson = friends.find((friend) => friend.id === selectedPersonId);
 
   return (

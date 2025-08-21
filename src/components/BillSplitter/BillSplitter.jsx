@@ -1,4 +1,4 @@
-import InputGroup from "./InputGroup";
+import InputGroup from "../InputGroup";
 import Button from "../Button";
 
 import "./billSplitter.css";

@@ -2,6 +2,8 @@ import "./friend.css";
 import Friend from "./Friend";
 import Button from "../Button";
 
+import AddFriend from "./AddFriend";
+
 function Friends({ selectedPersonId, setSelectedPersonId, friends }) {
   function handleSelectedId(id) {
     setSelectedPersonId(id);
@@ -17,6 +19,9 @@ function Friends({ selectedPersonId, setSelectedPersonId, friends }) {
           isSelected={selectedPersonId === friend.id}
         />
       ))}
+
+      <AddFriend />
+
       {/* prettier-ignore */}
       <Button className={"add-friend-btn"}>
         Add friend

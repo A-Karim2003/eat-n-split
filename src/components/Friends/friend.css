@@ -85,3 +85,18 @@
 .red {
   color: red;
 }
+
+/*============add-friend========== */
+
+.add-friend {
+  margin-top: 1rem;
+  background-color: #fff4e5;
+  padding: 1rem 10px;
+  border-radius: 16px;
+}
+
+/* .right class is a button */
+.right {
+  display: block;
+  margin-left: auto;
+}
