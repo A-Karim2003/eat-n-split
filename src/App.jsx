@@ -38,13 +38,13 @@ function App() {
     );
   }
 
-  function addFriend() {
-    const maxId = Math.max(...friends);
+  function addFriend(name) {
+    const maxId = Math.max(...friends.map((friend) => friend.id));
 
     const newFriend = {
-      id: 3,
-      profilePic: "https://i.pravatar.cc/150?img=3",
-      name: "Anthony",
+      id: maxId + 1,
+      profilePic: `https://i.pravatar.cc/150?img=${maxId}`,
+      name: name,
       amount: 0,
     };
 
@@ -59,6 +59,7 @@ function App() {
         selectedPersonId={selectedPersonId}
         setSelectedPersonId={setSelectedPersonId}
         friends={friends}
+        addFriend={addFriend}
       />
       <BillSplitter
         selectedPerson={selectedPerson}

@@ -4,7 +4,12 @@ import Button from "../Button";
 
 import AddFriend from "./AddFriend";
 
-function Friends({ selectedPersonId, setSelectedPersonId, friends }) {
+function Friends({
+  selectedPersonId,
+  setSelectedPersonId,
+  friends,
+  addFriend,
+}) {
   function handleSelectedId(id) {
     setSelectedPersonId(id);
   }
@@ -31,3 +36,5 @@ function Friends({ selectedPersonId, setSelectedPersonId, friends }) {
 }
 
 export default Friends;
+
+//! on
