@@ -7,11 +7,24 @@ import AddFriend from "./AddFriend";
 function Friends({
   selectedPersonId,
   setSelectedPersonId,
+  setFriends,
   friends,
-  addFriend,
 }) {
   function handleSelectedId(id) {
     setSelectedPersonId(id);
+  }
+
+  const maxId = Math.max(...friends.map((friend) => friend.id));
+
+  function addFriend(name) {
+    const newFriend = {
+      id: maxId + 1,
+      profilePic: `https://i.pravatar.cc/150?img=${maxId + 1}`,
+      name: name,
+      amount: 0,
+    };
+
+    setFriends((friends) => [...friends, newFriend]);
   }
 
   return (
@@ -25,7 +38,7 @@ function Friends({
         />
       ))}
 
-      <AddFriend />
+      <AddFriend addFriend={addFriend} />
 
       {/* prettier-ignore */}
       <Button className={"add-friend-btn"}>
@@ -36,5 +49,3 @@ function Friends({
 }
 
 export default Friends;
-
-//! on

@@ -25,7 +25,6 @@ const friendsData = [
 
 function App() {
   const [selectedPersonId, setSelectedPersonId] = useState("");
-
   const [friends, setFriends] = useState(friendsData);
 
   function handleFriends(id, newAmount) {
@@ -38,19 +37,6 @@ function App() {
     );
   }
 
-  function addFriend(name) {
-    const maxId = Math.max(...friends.map((friend) => friend.id));
-
-    const newFriend = {
-      id: maxId + 1,
-      profilePic: `https://i.pravatar.cc/150?img=${maxId}`,
-      name: name,
-      amount: 0,
-    };
-
-    setFriends((friends) => friends.push());
-  }
-
   let selectedPerson = friends.find((friend) => friend.id === selectedPersonId);
 
   return (
@@ -58,8 +44,8 @@ function App() {
       <Friends
         selectedPersonId={selectedPersonId}
         setSelectedPersonId={setSelectedPersonId}
+        setFriends={setFriends}
         friends={friends}
-        addFriend={addFriend}
       />
       <BillSplitter
         selectedPerson={selectedPerson}
