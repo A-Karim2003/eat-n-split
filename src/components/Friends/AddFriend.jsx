@@ -1,7 +1,15 @@
 import InputGroup from "../InputGroup";
 import Button from "../Button";
 
-function AddFriend({ onHandleAddFriend, setName, name, setImage, image }) {
+function AddFriend({
+  onHandleAddFriend,
+  setName,
+  name,
+  setImage,
+  image,
+  addSection,
+}) {
+  if (!addSection) return;
   return (
     <div className="add-friend">
       <InputGroup>

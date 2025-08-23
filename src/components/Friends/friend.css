@@ -1,6 +1,6 @@
 /*=========== Left-section-container======== */
 
-.friends {
+.friends-container {
   border-right: solid 1px orange;
   padding: 1rem;
   flex: 1;
@@ -10,8 +10,13 @@
   justify-content: space-between;
 }
 
+.friends {
+  max-height: 400px;
+  overflow-x: scroll;
+}
+
 @media (max-width: 420px) {
-  .friends {
+  .friends-container {
     width: 380px;
   }
 }

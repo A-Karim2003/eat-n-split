@@ -18,6 +18,8 @@ function Friends({
     }`
   );
 
+  const [addSection, setAddSection] = useState(false);
+
   function validateInputs() {
     if (!name) {
       alert("Please provide a name");
@@ -61,15 +63,17 @@ function Friends({
   }
 
   return (
-    <div className="friends">
-      {friends.map((friend) => (
-        <Friend
-          key={friend.id}
-          {...friend}
-          handleSelectedId={handleSelectedId}
-          isSelected={selectedPersonId === friend.id}
-        />
-      ))}
+    <div className="friends-container">
+      <div className="friends">
+        {friends.map((friend) => (
+          <Friend
+            key={friend.id}
+            {...friend}
+            handleSelectedId={handleSelectedId}
+            isSelected={selectedPersonId === friend.id}
+          />
+        ))}
+      </div>
 
       <AddFriend
         name={name}
@@ -77,11 +81,14 @@ function Friends({
         setName={setName}
         setImage={setImage}
         onHandleAddFriend={handleAddFriend}
+        addSection={addSection}
       />
 
       {/* prettier-ignore */}
-      <Button className={"add-friend-btn"}>
-        Add friend
+      <Button className={"add-friend-btn"} onClick={()=>{
+        setAddSection((add)=> !add)
+      }}>
+        {addSection ? "Close" : "Add friend"}
       </Button>
     </div>
   );
