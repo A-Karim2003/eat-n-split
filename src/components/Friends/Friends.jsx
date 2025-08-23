@@ -11,10 +11,12 @@ function Friends({
   setFriends,
   friends,
 }) {
-  const maxId = Math.max(...friends.map((friend) => friend.id)) + 1;
-
   const [name, setName] = useState("");
-  const [image, setImage] = useState(`https://i.pravatar.cc/150?img=${maxId}`);
+  const [image, setImage] = useState(
+    `https://i.pravatar.cc/150?img=${
+      Math.max(...friends.map((friend) => friend.id)) + 1
+    }`
+  );
 
   function validateInputs() {
     if (!name) {
@@ -33,11 +35,10 @@ function Friends({
   }
 
   function handleAddFriend() {
-    if (validateInputs()) {
-      addFriend(name);
-      setName("");
-      setImage("");
-    }
+    if (!validateInputs()) return;
+
+    addFriend(name);
+    setName("");
   }
 
   function handleSelectedId(id) {
@@ -45,17 +46,18 @@ function Friends({
   }
 
   function addFriend(name) {
+    const nextId = Math.max(...friends.map((friend) => friend.id)) + 1;
+    const newImage = `https://i.pravatar.cc/150?img=${nextId + 1}`;
+
     const newFriend = {
-      id: maxId,
-      profilePic: `https://i.pravatar.cc/150?img=${maxId}`,
+      id: nextId,
+      profilePic: image || `https://i.pravatar.cc/150?img=${1}`,
       name: name,
       amount: 0,
     };
 
-    setFriends((friends) => {
-      setImage(`https://i.pravatar.cc/150?img=${maxId}`);
-      return [...friends, newFriend];
-    });
+    setFriends((friends) => [...friends, newFriend]);
+    setImage(newImage);
   }
 
   return (
