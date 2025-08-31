@@ -48,6 +48,7 @@ function App() {
         friends={friends}
       />
       <BillSplitter
+        key={selectedPerson?.id}
         selectedPerson={selectedPerson}
         onHandleFriends={handleFriends}
         selectedPersonId={selectedPersonId}
